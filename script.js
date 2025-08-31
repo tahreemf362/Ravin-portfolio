@@ -1,4 +1,137 @@
+// === Animated magical particles background ===
+window.addEventListener('DOMContentLoaded', () => {
+  // Magical orbs config
+  const ORB_COUNT = 8;
+  const orbs = Array.from({length: ORB_COUNT}, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 38 + 22,
+    dx: (Math.random() - 0.5) * 0.7,
+    dy: (Math.random() - 0.5) * 0.7,
+    phase: Math.random() * 2 * Math.PI
+  }));
+  const canvas = document.getElementById('particles-bg');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const STAR_COUNT = 120;
+  const stars = Array.from({length: STAR_COUNT}, () => ({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 1.6 + 0.7,
+    alpha: Math.random() * 0.7 + 0.35,
+    speed: Math.random() * 0.3 + 0.1,
+    twinkle: Math.random() * 2 * Math.PI,
+    dx: (Math.random() - 0.5) * 0.3, // horizontal movement
+    dy: (Math.random() - 0.5) * 0.3, // vertical movement
+    spark: Math.random() < 0.18 // some stars will spark
+  }));
+
+  function getTheme() {
+    return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+  }
+  function drawStars() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const theme = getTheme();
+
+    // Draw magical orbs
+    for (const orb of orbs) {
+      orb.x += orb.dx * (0.7 + Math.sin(orb.phase) * 0.2);
+      orb.y += orb.dy * (0.7 + Math.cos(orb.phase) * 0.2);
+      orb.phase += 0.01 + Math.random() * 0.01;
+      if (orb.x < -orb.r) orb.x = canvas.width + orb.r;
+      if (orb.x > canvas.width + orb.r) orb.x = -orb.r;
+      if (orb.y < -orb.r) orb.y = canvas.height + orb.r;
+      if (orb.y > canvas.height + orb.r) orb.y = -orb.r;
+      ctx.save();
+      ctx.globalAlpha = theme === 'dark' ? 0.18 : 0.13;
+      const orbColor = theme === 'dark'
+        ? `radial-gradient(circle at 40% 40%, #a78bfa 0%, #38bdf8 60%, transparent 100%)`
+        : `radial-gradient(circle at 40% 40%, #2563eb 0%, #f472b6 60%, transparent 100%)`;
+      // Simulate gradient with shadow and fill
+      ctx.beginPath();
+      ctx.arc(orb.x, orb.y, orb.r, 0, 2 * Math.PI);
+      ctx.fillStyle = theme === 'dark' ? '#a78bfa' : '#2563eb';
+      ctx.shadowColor = theme === 'dark' ? '#38bdf8' : '#f472b6';
+      ctx.shadowBlur = 40;
+      ctx.fill();
+      ctx.restore();
+    }
+
+    // Draw stars
+    for (const star of stars) {
+      // Move star
+      star.x += star.dx;
+      star.y += star.dy;
+      // Bounce off edges
+      if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
+      if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
+
+      // Twinkle and spark
+      star.twinkle += star.speed * 0.04;
+      let twinkleAlpha = star.alpha + Math.sin(star.twinkle) * 0.22;
+      if (star.spark && Math.random() < 0.04) {
+        twinkleAlpha = 1;
+      }
+      ctx.save();
+      ctx.globalAlpha = Math.max(0.18, twinkleAlpha);
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.r, 0, 2 * Math.PI);
+      if (theme === 'dark') {
+        ctx.fillStyle = star.spark ? '#fffbe6' : '#fff';
+        ctx.shadowColor = star.spark ? '#f472b6' : '#a78bfa';
+      } else {
+        ctx.fillStyle = star.spark ? '#2563eb' : '#0a1a33';
+        ctx.shadowColor = star.spark ? '#38bdf8' : '#2563eb';
+      }
+      ctx.shadowBlur = star.spark ? 16 : 8;
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  // Listen for theme changes
+  const observer = new MutationObserver(drawStars);
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+  function animate() {
+    drawStars();
+    requestAnimationFrame(animate);
+  }
+  animate();
+});
 /* ========= THEME TOGGLE (persist) ========= */
+// ===== True Typing Animation (JS) =====
+function typeText(element, text, speed = 60, callback) {
+  element.textContent = '';
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      element.textContent += text[i];
+      i++;
+      setTimeout(type, speed);
+    } else if (callback) {
+      callback();
+    }
+  }
+  type();
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  // Animate only the intro paragraph first, then summary
+  const introEl = document.querySelector('.lead.typing span');
+  if (introEl) {
+    const introText = introEl.textContent;
+    introEl.textContent = '';
+    typeText(introEl, introText, 60);
+  }
+});
 const root = document.documentElement;
 const toggleBtn = document.getElementById('themeToggle');
 const savedTheme = localStorage.getItem('theme');

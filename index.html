@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Google Fonts: Poppins for body, Bungee for headings -->
+  <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Ravin G — Senior Data Engineer</title>
@@ -23,6 +25,12 @@
   <script src="script.js" defer></script>
 </head>
 <body>
+  <div class="magical-bg">
+    <div class="magical-blob blob1"></div>
+    <div class="magical-blob blob2"></div>
+    <div class="magical-blob blob3"></div>
+  </div>
+  <canvas id="particles-bg"></canvas>
   <!-- sparkle canvas (full screen) -->
   <canvas id="sparkle-canvas"></canvas>
 
@@ -38,13 +46,13 @@
     <div class="profile text-center">
       <!-- optional avatar: uncomment if you want -->
       <!-- <img src="assets/profile.png" alt="Ravin" class="avatar rounded-circle mb-2"> -->
-      <h3 class="mb-0">Ravin G</h3>
+  <h3 class="mb-0 ravin-bold">Ravin G</h3>
       <div class="muted small">Senior Data Engineer · Data Architect · AI & Big Data Engineer</div>
 
       <div class="social mt-3 d-flex justify-content-center gap-2">
-        <a href="#" title="Email"><i class="fa-regular fa-envelope"></i></a>
-        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+  <a href="#" title="Email"><i class="fa-regular fa-envelope social-icon email-icon"></i></a>
+  <a href="#" title="GitHub"><i class="fab fa-github social-icon github-icon"></i></a>
+  <a href="#" title="LinkedIn"><i class="fab fa-linkedin social-icon linkedin-icon"></i></a>
       </div>
     </div>
 
@@ -79,9 +87,17 @@
       <section id="hero" class="hero box-card reveal">
         <div class="row g-4 align-items-center">
           <div class="col-lg-7">
-            <h1 class="display-5 fw-800 hero-title shimmer">Ravin G</h1>
-            <h2 class="h6 accent mb-3">Senior Data Engineer · Data Architect · AI & Big Data Engineer</h2>
-            <p class="lead">Accomplished Senior Data Engineer with 7+ years designing and building scalable, high-performance data solutions. Expertise in cloud-native architectures, real-time processing, and AI-enabled data platforms. I transform complex data into business value with secure, compliant solutions.</p>
+            <h1 class="display-5 fw-800 hero-title shimmer typing delay-1 ravin-bold"><span>Ravin G</span></h1>
+<h2 class="h6 accent mb-3 typing delay-2"><span>Senior Data Engineer · Data Architect · AI & Big Data Engineer</span></h2>
+<p class="lead typing delay-3">
+  <span>
+    Accomplished Senior Data Engineer with 7+ years designing and building scalable, high-performance data solutions. 
+    Expertise in cloud-native architectures, real-time processing, and AI-enabled data platforms. 
+    I transform complex data into business value with secure, compliant solutions.
+  </span>
+</p>
+
+
 
             <div class="d-flex gap-2 flex-wrap mt-3">
               <a class="btn fancy-btn" href="#experience">Hire Me</a>
@@ -112,7 +128,7 @@
 
       <!-- SUMMARY -->
       <section id="summary" class="section reveal">
-        <div class="box-card">
+  <div class="box-card">
           <h3 class="section-heading">Professional Summary</h3>
           <p class="muted">Accomplished Senior Data Engineer with 7+ years of experience in designing and building scalable, high-performance data solutions. Proven expertise in Data Architecture, Big Data engineering, and AI-driven data platforms. Adept at transforming complex data systems into actionable insights through cloud-native architectures, real-time processing, and machine learning. Strong background in delivering business value through innovative solutions, enhancing data security, and ensuring compliance.</p>
         </div>
@@ -120,7 +136,7 @@
 
       <!-- SKILLS (flip cards) -->
       <section id="skills" class="section reveal">
-        <div class="box-card">
+  <div class="box-card">
           <h3 class="section-heading">Core Skills</h3>
           <div class="row g-4 mt-3">
             <!-- Flip card template -->
