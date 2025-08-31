@@ -14,6 +14,7 @@ toggleBtn?.addEventListener('click', () => {
 });
 
 /* ========= MOBILE SIDEBAR TOGGLE ========= */
+/* ========= MOBILE SIDEBAR TOGGLE ========= */
 const menuBtn = document.getElementById('menuToggle');
 const sidebar = document.getElementById('sidebar');
 const overlay = document.getElementById('overlay');
@@ -32,6 +33,7 @@ overlay?.addEventListener('click', () => {
   sidebar.setAttribute('aria-hidden', 'true');
   overlay.setAttribute('aria-hidden', 'true');
 });
+
 document.querySelectorAll('.sidebar .nav-link').forEach(link=>{
   link.addEventListener('click', ()=> {
     if (window.innerWidth <= 992) {
