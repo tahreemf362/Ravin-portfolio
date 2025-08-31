@@ -1,6 +1,6 @@
 /* Ravin G prominent style */
 .ravin-bold {
-  font-family: 'Bungee', 'Poppins', sans-serif;
+  font-family: 'Orbitron', 'Poppins', sans-serif;
   font-weight: 900 !important;
   letter-spacing: 2px;
   font-size: 2.5rem !important;
@@ -54,6 +54,8 @@
   .hero-title {
     font-size: 2.1rem;
     margin-left: 0;
+    font-family: 'Orbitron', 'Bungee', 'Poppins', sans-serif;
+    font-weight: 900;
   }
   h2, h3 {
     font-size: 1.1rem;
@@ -442,6 +444,26 @@ h1, h2, h3, .hero-title {
   background:#fff;
   border-radius:12px; padding:12px;
   border:1px solid rgba(0,0,0,0.06); color:#000;
+}
+:root .right-cards .mini-contact-card:first-of-type {
+  background: linear-gradient(135deg, #f472b6 0%, #a78bfa 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(167,139,250,0.15);
+  border: none;
+}
+:root .right-cards .mini-contact-card:nth-of-type(2) {
+  background: linear-gradient(135deg, #f472b6 0%, #a78bfa 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(167,139,250,0.15);
+  border: none;
+}
+:root .right-cards > div:nth-of-type(3) {
+  background: linear-gradient(135deg, #f472b6 0%, #a78bfa 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(167,139,250,0.15);
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
 }
 :root.dark .mini-contact-card{
   background:#0d1a2f; color:#fff;
