@@ -42,6 +42,17 @@
   animation: headingGradientMove 4s ease-in-out infinite;
 }
 @media (max-width: 600px) {
+  .hero-title {
+    border-right: none !important;
+    animation: none !important;
+  }
+  .hero .section-heading::after {
+    display: none !important;
+  }
+  .typing {
+    border-right: none !important;
+    animation: none !important;
+  }
   .sidebar {
     padding-bottom: 80px !important;
   }
