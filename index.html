@@ -28,14 +28,8 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <div class="magical-bg">
-    <div class="magical-blob blob1"></div>
-    <div class="magical-blob blob2"></div>
-    <div class="magical-blob blob3"></div>
-  </div>
-  <canvas id="particles-bg"></canvas>
-  <!-- sparkle canvas (full screen) -->
-  <canvas id="sparkle-canvas"></canvas>
+  <!-- Removed duplicate moon button outside sidebar -->
+  <!-- Background effects removed for solid color look -->
 
   <!-- mobile hamburger -->
 <!-- Hamburger -->
@@ -46,18 +40,20 @@
 
   <!-- Sidebar (desktop / offcanvas on mobile) -->
   <aside class="sidebar d-flex flex-column text-white" id="sidebar" aria-hidden="false">
-    <div class="profile text-center">
+  <div class="profile text-center">
       <!-- optional avatar: uncomment if you want -->
       <!-- <img src="assets/profile.png" alt="Ravin" class="avatar rounded-circle mb-2"> -->
-  <h3 class="mb-0 ravin-bold">Ravin G</h3>
+      <h3 class="mb-0 ravin-bold">Ravin G</h3>
       <div class="muted small">Senior Data Engineer · Data Architect · AI & Big Data Engineer</div>
-
       <div class="social mt-3 d-flex justify-content-center gap-2">
-  <a href="#" title="Email"><i class="fa-regular fa-envelope social-icon email-icon"></i></a>
-  <a href="#" title="GitHub"><i class="fab fa-github social-icon github-icon"></i></a>
-  <a href="#" title="LinkedIn"><i class="fab fa-linkedin social-icon linkedin-icon"></i></a>
+        <a href="#" title="Email"><i class="fa-regular fa-envelope social-icon email-icon"></i></a>
+        <a href="#" title="GitHub"><i class="fab fa-github social-icon github-icon"></i></a>
+        <a href="#" title="LinkedIn"><i class="fab fa-linkedin social-icon linkedin-icon"></i></a>
       </div>
-    </div>
+      <button id="mobileThemeToggle" class="mobile-theme-btn" aria-label="Toggle dark mode">🌙</button>
+  </div>
+  
+      
 
     <nav class="mt-4">
       <ul class="nav flex-column">
@@ -92,12 +88,12 @@
           <div class="col-lg-7">
             <h1 class="display-5 fw-800 hero-title shimmer typing delay-1 ravin-bold"><span>Ravin G</span></h1>
 <h2 class="h6 accent mb-3 typing delay-2"><span>Senior Data Engineer · Data Architect · AI & Big Data Engineer</span></h2>
-<p class="lead typing delay-3">
-  <span>
-    Accomplished Senior Data Engineer with 7+ years designing and building scalable, high-performance data solutions. 
-    Expertise in cloud-native architectures, real-time processing, and AI-enabled data platforms. 
-    I transform complex data into business value with secure, compliant solutions.
-  </span>
+</span>
+<p class="lead">
+  Accomplished Senior Data Engineer with 7+ years designing and building scalable, high-performance data solutions.<br>
+  Expertise in cloud-native architectures, real-time processing, and AI-enabled data platforms.<br>
+  I transform complex data into business value with secure, compliant solutions.
+</p>
 </p>
 
 

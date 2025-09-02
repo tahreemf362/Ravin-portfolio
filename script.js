@@ -1,5 +1,19 @@
 // === Animated magical particles background ===
 window.addEventListener('DOMContentLoaded', () => {
+  // Ensure mobile theme toggle button works reliably
+  const mobileThemeBtn = document.getElementById('mobileThemeToggle');
+  if (mobileThemeBtn) {
+    function updateMobileBtn() {
+      mobileThemeBtn.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+      mobileThemeBtn.style.color = '#f7c948';
+    }
+    mobileThemeBtn.onclick = function() {
+      document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+      updateMobileBtn();
+    };
+    updateMobileBtn();
+  }
   // Magical orbs config
   const ORB_COUNT = 8;
   const orbs = Array.from({length: ORB_COUNT}, () => ({
